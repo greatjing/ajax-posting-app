@@ -1,0 +1,28 @@
+<p>
+  <a id="my-open-click">open</a>
+</p>
+
+<div id="foo" style="border: 1px solid red;">
+  <a id="my-hide-click">hide</a>
+  <p>bar</p>
+</div>
+
+<script>
+  $("#foo").hide();
+
+  $("#my-open-click").click(function(){
+    // $("#foo").show();
+    // 渐变显示
+    // $("#foo").fadeIn();
+    // 向下展开
+    $("#foo").slideDown();
+  })
+
+  $("#my-hide-click").click(function(){
+    // $("#foo").hide();
+    // 渐变消失
+    // $("#foo").fadeOut();
+    // 向上收回
+    $("#foo").slideUp();
+  })
+</script>

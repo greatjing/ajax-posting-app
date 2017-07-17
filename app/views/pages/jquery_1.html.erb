@@ -1,0 +1,26 @@
+<script>
+  // 添加log信息
+  console.log("checkpoint a")
+
+// 先把程序包起来，在加载完html之后执行，可以缩写成$(function)(){
+$(document).ready(function(){
+  $("#my-click").click(function(){
+    // 添加弹窗提示
+    // alert("test");
+    // 添加log信息
+    console.log("checkpoint b")
+    $("#foo").after('<h1>zoo</h1>');
+  })
+})
+// 添加log信息
+  console.log("checkpoint c")
+</script>
+
+
+<p>
+  <a id="my-click">Click Me</a>
+</p>
+
+<div id="foo" style="border: 1px solid red;">
+  <p>bar</p>
+</div>

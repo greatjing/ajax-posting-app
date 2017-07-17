@@ -1,0 +1,17 @@
+<p>
+  <a id="my-toggle-click"> Toggle </a>
+</p>
+
+<div id="foo" style="border: 1px solid red;">
+  <p>bar</p>
+</div>
+
+<script>
+  $("#foo").hide();
+
+  $("#my-toggle-click").hover(function(){
+    // $("#foo").toggle();  //hover后有开关的效果
+    // $("#foo").slideToggle(); //hover顺序渐变动画显示
+    $("#foo").fadeToggle(); //hover渐变动画显示
+  })
+</script>
