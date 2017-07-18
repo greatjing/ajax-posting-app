@@ -1,0 +1,40 @@
+<p>
+  <a id="my-replace-click"> Replace </a>
+  <a id="my-remove-click">Remove</a>
+  <a id="my-remove-all-click">Remove All</a>
+</p>
+
+<div id="foo" style="border: 1px solid red;">
+  <p>bar</p>
+</div>
+
+<div class="zoo">
+  <p>a</p>
+</div>
+
+<div class="zoo">
+  <p>b</p>
+</div>
+
+<div class="zoo">
+  <p>c</p>
+</div>
+
+
+<script>
+// 替换
+  $("#my-replace-click").click(function(){
+    $("#foo").replaceWith('<div id="foo" style="border:1px solid green"><p>foo</p></div>')
+  })
+
+// 移除
+  $("#my-remove-click").click(function(){
+    $("#foo").remove();
+  })
+
+// 全部移除
+  $("#my-remove-all-click").click(function(){
+    $(".zoo").remove();
+  })
+
+</script>
