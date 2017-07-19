@@ -35,6 +35,15 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+#登录
+gem "devise"
+
+#构造测试数据
+gem 'faker'
+
+#安装bootstrap
+gem  'bootstrap-sass'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
