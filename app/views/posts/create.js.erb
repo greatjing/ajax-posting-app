@@ -1,1 +1,8 @@
-$("#post-list").prepend( "<%= render :partial => "post", :locals => { :post => @post } %>" );
+// 加入输入是空，给出错误提示信息
+<% if @post.valid? %>
+  $("#post-list").prepend( "<%=j render :partial => "post", :locals => { :post => @post } %>" );
+  // 新增后，输入框清空
+  $("#post_content").val("");
+<% else %>
+  alert("输入为空，不能新建");
+<% end %>
