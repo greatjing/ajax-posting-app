@@ -11,7 +11,7 @@ class PostsController < ApplicationController
     @post.user = current_user
     @post.save
 
-    redirect_to posts_path
+    # redirect_to posts_path
   end
 
   def destroy
