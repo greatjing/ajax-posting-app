@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   resources :posts do
     member do
       post "like" => "posts#like"
-      post "unlike" => "posts#unlike"
+      # post "unlike" => "posts#unlike"
+      #post :like
+      post :unlike
     end
   end
 
