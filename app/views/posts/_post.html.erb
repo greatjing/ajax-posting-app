@@ -10,6 +10,15 @@
       </span>
     </div>
 
+    <!-- 收藏功能 -->
+    <div class="text-right">
+      <span id="post-collect-<%= post.id %>">
+        <%= render :partial => "collect", :locals => { :post => post } %>
+      </span>
+    </div>
+
+    <br>
+
     <% if current_user && post.user == current_user %>
       <p class="text-right">
         <!-- <%= link_to "Delete", post_path(post), :method => :delete, :class => "btn btn-danger" %> -->

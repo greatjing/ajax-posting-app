@@ -13,6 +13,8 @@ Rails.application.routes.draw do
       # post "unlike" => "posts#unlike"
       #post :like
       post :unlike
+      post :collect
+      post :uncollect
     end
   end
 

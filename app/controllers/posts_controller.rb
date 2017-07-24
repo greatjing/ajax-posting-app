@@ -22,10 +22,11 @@ class PostsController < ApplicationController
     # render :js => "alert('ok');"
   end
 
+#点赞
   def like
     @post = Post.find(params[:id])
     unless @post.find_like(current_user)
-      Like.create( :user => current_user, :post => @post )
+      Like.create( :user => current_user, :post => @post, :status => "like" )
     end
 
     #redirect_to posts_path
@@ -38,6 +39,25 @@ class PostsController < ApplicationController
 
     #redirect_to posts_path
     render "like"
+  end
+
+#收藏
+  def collect
+    @post = Post.find(params[:id])
+    unless @post.find_collect(current_user)
+      Like.create( :user => current_user, :post => @post, :status => "collect")
+    end
+
+  #redirect_to posts_path
+  end
+
+  def uncollect
+    @post = Post.find(params[:id])
+    like = @post.find_collect(current_user)
+    like.destroy
+
+    #redirect_to posts_path
+    render "collect"
   end
 
   protected
