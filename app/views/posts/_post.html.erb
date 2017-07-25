@@ -22,7 +22,9 @@
     <% if current_user && post.user == current_user %>
       <p class="text-right">
         <!-- <%= link_to "Delete", post_path(post), :method => :delete, :class => "btn btn-danger" %> -->
-        <%= link_to "delete", post_path(post), :method => :delete, :remote =>true, :class => "btn btn-danger" %>
+        <!-- <%= link_to "delete", post_path(post), :method => :delete, :remote =>true, :class => "btn btn-danger" %> -->
+        <!-- 改成自行删除事件 -->
+        <%= link_to "delete", post_path(post), :class => "delete-post btn btn-danger" %>
       </p>
     <% end %>
   </div>

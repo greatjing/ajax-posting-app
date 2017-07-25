@@ -20,6 +20,9 @@ class PostsController < ApplicationController
 
     # redirect_to posts_path
     # render :js => "alert('ok');"
+
+    # 使用回传json
+    render :json => { :id => @post.id }
   end
 
 #点赞

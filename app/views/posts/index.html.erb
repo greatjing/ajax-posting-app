@@ -14,3 +14,26 @@
  <% end %>
 
 </div>
+
+<script>
+// 绑定click事件到所有class 是delete-post 的元素上（所有的删除按钮）
+  $(".delete-post").click(function(evt){
+    // evt是浏览器事件物件，evt.preventdefault（）会组织元素的默认模式
+    // 超链接a的默认行为是跳到下一页，如果没有这个限制的话，送出ajax后会跳到show page页面
+    evt.preventDefault();
+    // 下面是拿到超链接的网址，this应该和java的一样，这里表示出发事件的元素，attr可以读取原属性
+    var url = $(this).attr("href");
+
+// 送出ajax
+    $.ajax({
+      url: url,
+      method: 'DELETE',
+      // dataType: 'script'  // ——要求服务器回传javascript
+      // 要求服务器回传，修改成json格式
+      dataType: 'json',
+      success: function(data){
+        $("#post-"+data["id"]).remove();
+      }
+    })
+  })
+</script>
