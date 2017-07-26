@@ -3,7 +3,21 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, :only => [:create, :destroy]
 
   def index
-    @posts = Post.order("id DESC").all
+    # @posts = Post.order("id DESC").all
+    # 页面无限捲袖功能，显示20行
+    @posts = Post.order("id DESC").limit(20)
+
+    # 查询比max——id小的post id，定params参数
+    if params[:max_id]
+      @posts = @posts.where("id < ?", params[:max_id])
+    end
+
+# respond_to 可以让rails根据请求格式（在$ajax制定dataType），来回传不同格式
+    respond_to do |format|
+      format.html # 如果客户端要求html，则回传index.html.erb
+      format.js #如果客户端要求javascript，回传 index.js.erb
+    end
+
   end
 
   def create
