@@ -27,7 +27,9 @@
     // 超链接a的默认行为是跳到下一页，如果没有这个限制的话，送出ajax后会跳到show page页面
     evt.preventDefault();
     // 下面是拿到超链接的网址，this应该和java的一样，这里表示出发事件的元素，attr可以读取原属性
+
     var url = $(this).attr("href");
+    var that = this;
 
 // 送出ajax
     $.ajax({
@@ -37,7 +39,9 @@
       // 要求服务器回传，修改成json格式
       dataType: 'json',
       success: function(data){
-        $("#post-"+data["id"]).remove();
+        // $("#post-"+data["id"]).remove();
+        // 使用jQuery Traversing 走访元素
+        $(that).closest(".panel").remove();
       }
     })
   })
@@ -71,6 +75,7 @@
   // 变成从上一层可靠元素进行触发
   $("#post-list").on( 'change', ".toggle-flag", function(){
     var url = $(this).data("url");
+    var that = this;
 
     $.ajax({
       url: url,
@@ -78,9 +83,13 @@
       dataType: "json",
       success: function(data){
         if ( data["flag_at"] ){
-          $("#post-flag-" + data["id"]).html(data["flay_at"]);
+          // $("#post-flag-" + data["id"]).html(data["flay_at"]);
+          // 使用jQuery Traversing 走访元素
+          $(that).closest("label").find("span").html(data["flag_at"])
         }else {
-          $("#post-flag-" + data["id"]).html("");
+          // $("#post-flag-" + data["id"]).html("");
+          // 使用jQuery Traversing 走访元素
+          $(that).closest("label").find("span").html("")
         }
       }
     });
