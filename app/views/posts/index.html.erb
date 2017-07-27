@@ -20,7 +20,9 @@
 // 删除post事件
 
 // 绑定click事件到所有class 是delete-post 的元素上（所有的删除按钮）
-  $(".delete-post").click(function(evt){
+  // $(".delete-post").click(function(evt){
+  // 变更成对所有的post生效，包括新增,从可靠的上一层元素点击
+  $("#post-list").on('click', ".delete-post", function(evt){
     // evt是浏览器事件物件，evt.preventdefault（）会组织元素的默认模式
     // 超链接a的默认行为是跳到下一页，如果没有这个限制的话，送出ajax后会跳到show page页面
     evt.preventDefault();
@@ -65,7 +67,9 @@
   // 标记功能
 
   // 输入框有变化时触发执行
-  $(".toggle-flag").on('change', function(){
+  // $(".toggle-flag").on('change', function(){
+  // 变成从上一层可靠元素进行触发
+  $("#post-list").on( 'change', ".toggle-flag", function(){
     var url = $(this).data("url");
 
     $.ajax({
