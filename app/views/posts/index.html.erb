@@ -62,4 +62,24 @@
     }
   })
 
+  // 标记功能
+
+  // 输入框有变化时触发执行
+  $(".toggle-flag").on('change', function(){
+    var url = $(this).data("url");
+
+    $.ajax({
+      url: url,
+      method: "POST",
+      dataType: "json",
+      success: function(data){
+        if ( data["flag_at"] ){
+          $("#post-flag-" + data["id"]).html(data["flay_at"]);
+        }else {
+          $("#post-flag-" + data["id"]).html("");
+        }
+      }
+    });
+  });
+
 </script>

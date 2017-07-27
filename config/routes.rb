@@ -15,6 +15,8 @@ Rails.application.routes.draw do
       post :unlike
       post :collect
       post :uncollect
+      # 标记
+      post :toggle_flag
     end
   end
 
