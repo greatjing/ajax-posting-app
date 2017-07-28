@@ -95,4 +95,22 @@
     });
   });
 
+  // 添加分类
+  $("#post-list").on('change', ".select_category", function(){
+
+    var url = $(this).data("url");
+
+    $.ajax({
+      url: url,
+      method: "PATCH",
+      dataType: "json",
+      data: {
+        post: {
+          // $(this).val()可以抓到选单值
+          category_id: $(this).val()
+        }
+      }
+    });
+  });
+
 </script>

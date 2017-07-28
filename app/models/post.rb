@@ -1,6 +1,8 @@
 class Post < ApplicationRecord
   validates_presence_of :content
   belongs_to :user
+  # optional表示可选非必选
+  belongs_to :category, :optional => true
 
   has_many :likes, :dependent => :destroy
   has_many :liked_users, :through => :likes, :source => :user
