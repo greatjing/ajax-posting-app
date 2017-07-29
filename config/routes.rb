@@ -17,6 +17,8 @@ Rails.application.routes.draw do
       post :uncollect
       # 标记
       post :toggle_flag
+      # 打分
+      post :rate
     end
   end
 

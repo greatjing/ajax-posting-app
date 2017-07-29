@@ -3,8 +3,11 @@
   <div class="panel-body">
     <span id="post-thumbsup-<%= post.id %>" class="lable label-success"><%= post.likes.count %>👍</span>
     <!-- 添加星星评论 -->
-    <div class="raty">
+    <!-- <div class="raty"></div> -->
+    <span class="average_score"><%= post.average_score %></span>
+    <div class="raty" data-score="<%= post.find_socre(current_user).try(:score) || 0 %>" data-score-url="<%= rate_post_path(post) %>">
     </div>
+
     <%= post.content %>
     <!-- 点赞功能 -->
     <div class="text-right">
