@@ -2,6 +2,9 @@
   <div class="panel-heading"><%= post.user.display_name %></div>
   <div class="panel-body">
     <span id="post-thumbsup-<%= post.id %>" class="lable label-success"><%= post.likes.count %>👍</span>
+    <!-- 添加星星评论 -->
+    <div class="raty">
+    </div>
     <%= post.content %>
     <!-- 点赞功能 -->
     <div class="text-right">
