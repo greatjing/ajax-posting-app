@@ -134,6 +134,9 @@
         dataType: "json",
         success: function(data){
           $(that).closest(".panel-body").find(".average_score").html( data["average_score"] );
+          // 弹出提示显示this是object object（js对象），that是object htmldivelement（dom对象）
+          // alert(this);
+          // alert(that);
         }
       })
     }
